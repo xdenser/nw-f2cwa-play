@@ -1,0 +1,7 @@
+{
+  "name": "sample application for nw-f2cwa-play",
+  "main": "index.html",
+  "window": {
+      "toolbar": true
+  }
+}

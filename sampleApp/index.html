@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body onload="loaded();">
+<div>
+    <h1>Choose local file or enter stream uri:</h1>
+</div>
+<input id='uri' style='width: 400px;' type='text'>
+<input id='localFile' type='file'><br>
+<button onclick='play()'>Play</button>
+<button onclick='stop()'>Stop</button>
+<div>
+ <canvas id='cnv' width=1280 height=534>
+ </canvas>
+</div>
+<script>
+    var
+       Player = require('../lib/ffmpegPlayer').Player,
+       player;
+    function loaded(){
+
+        localFile.addEventListener('change',function(){
+           if(localFile.files.length){
+               uri.value = localFile.files[0].path;
+           }
+        });
+    }
+
+    function play(){
+      if(player) player.stop();
+      player = new Player({selector:'#cnv'});
+      player.playFile(uri.value);
+    }
+
+    function stop(){
+        if(player) player.stop();
+        player = null;
+    }
+
+</script>
+</body>
+</html>
