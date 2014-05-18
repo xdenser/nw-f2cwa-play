@@ -10,13 +10,16 @@
 </div>
 <input id='uri' style='width: 400px;' type='text'>
 <input id='localFile' type='file'><br>
+<label id='pos'></label>
 <button onclick='play()'>Play</button>
+<button onclick='togglePause()'>Pause</button>
 <button onclick='stop()'>Stop</button>
 <div>
  <canvas id='cnv' width=1280 height=534>
  </canvas>
 </div>
 <script>
+
     var
        Player = require('../lib/ffmpegPlayer').Player,
        player;
@@ -32,14 +35,26 @@
     function play(){
       if(player) player.stop();
       player = new Player({selector:'#cnv'});
-      player.playFile(uri.value);
+      player.openSrc(uri.value);
+      player.on('canplay',function(){
+          player.play();
+      })
+      player.on('time',function(tm){
+         pos.innerText = tm.toFixed(2)+'/'+player.duration;
+      });
+    }
+
+    function togglePause(){
+        if(player){
+            if(!player.paused) player.pause();
+            else player.play();
+        }
     }
 
     function stop(){
         if(player) player.stop();
         player = null;
     }
-
 </script>
 </body>
 </html>
