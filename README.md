@@ -28,6 +28,7 @@ player.on('time',function(time){
 
 
 Seeking for streams allowing seeking (mostly files) is also supported:
+
 1. Use `player.openSrc(url,startPos);` to start playback from needed pos. startPos expressed in seconds.
 2. Use `player.seek(seekPos);` seekPos is alos expressed in seconds.
 
