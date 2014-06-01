@@ -1,6 +1,6 @@
 {
   "name": "nw-f2cwa-play",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Ffmpeg to Canvas and Web Audio media playback for Node WebKit.",
   "main": "lib/ffmpegPlayer.js",
   "scripts": {

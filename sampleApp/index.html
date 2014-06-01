@@ -17,6 +17,9 @@
 <div>
  <canvas id='cnv' width=1280 height=534>
  </canvas>
+ <div id='seekBar' style='background-color: black; width: 1280px; height: 5px; overflow: hidden; cursor: pointer;'>
+   <div id='progressBar' style='background-color: blue; width: 0%; height:5px'></div>
+ </div>
 </div>
 <script>
 
@@ -30,17 +33,25 @@
                uri.value = localFile.files[0].path;
            }
         });
+
+        seekBar.addEventListener('click',function(e){
+            if(!player || !player.duration) return;
+            var pos = (e.offsetX/parseInt(seekBar.style.width))*player.duration;
+            player.seek(pos);
+        });
     }
 
     function play(){
       if(player) player.stop();
-      player = new Player({selector:'#cnv'});
+      player = new Player({selector:'#cnv', autoDownScale: false});
       player.openSrc(uri.value);
       player.on('canplay',function(){
+          seekBar.style.width = cnv.width+'px';
           player.play();
       })
       player.on('time',function(tm){
          pos.innerText = tm.toFixed(2)+'/'+player.duration;
+         progressBar.style.width = tm*100/player.duration+'%';
       });
     }
 
