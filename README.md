@@ -3,7 +3,12 @@ nw-f2cwa-play
 
 Ffmpeg to Canvas and Web Audio media playback for Node WebKit.
 
+
 You will need ffmpeg to run this.
+
+Install with 
+ `npm install nw-f2cwa-play`
+ 
 Under Windows place ffmpeg.exe into `vendor` directory or
 on any platform pass ffmpeg path to player as option.
 
