@@ -13,5 +13,16 @@
     "playback"
   ],
   "author": "Denys Khanzhyiev",
-  "license": "MIT"
+  "license": "MIT",
+  "maintainers" :
+  [ { "name": "Denys Khanzhiyev"
+    , "email": "xdenser@gmail.com"
+    }
+  ],
+  "bugs" : { "url" : "http://github.com/xdenser/nw-f2cwa-play/issues" }, 
+  "repositories" :
+  [ { "type" : "git"
+    , "url" : "http://github.com/xdenser/nw-f2cwa-play.git"
+    }
+  ]
 }
