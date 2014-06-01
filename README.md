@@ -8,7 +8,11 @@ Under Windows place ffmpeg.exe into `vendor` directory or
 on any platform pass ffmpeg path to player as option.
 
 ```
-var player = new Player({
+var
+  Player = require('nw-f2cwa-play').Player,
+  player;
+
+player = new Player({
   selector:'#cnv', // selector for canvas to render video
   ffmpegPath: 'ffmpeg' // in case ffmpeg is available on standard path
 });
