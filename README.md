@@ -13,12 +13,26 @@ var player = new Player({
   ffmpegPath: 'ffmpeg' // in case ffmpeg is available on standard path
 });
 
-player.playFile('udp://@239.0.1.2:1234');
+player.openSrc('udp://@239.0.1.2:1234'); // pass stream url (rtp, udp, http ... anything supported by ffmpeg) or file path
+
+// auto start playback
+player.on('canplay',function(){
+          player.play();
+})
+
+player.on('time',function(time){
+  // time is current stream time in seconds
+});
+
 ```
+
+
+Seeking for streams allowing seeking (mostly files) is also supported:
+1. Use `player.openSrc(url,startPos);` to start playback from needed pos. startPos expressed in seconds.
+2. Use `player.seek(seekPos);` seekPos is alos expressed in seconds.
+
 
 See sample App.
 
 This is experiment as for now. May produce unexpected results.
-There are problems playing avi files for example (some codecs produce BGRA frames, with zero alpha channel,
- so you'll see no video on canvas).
-Try mkv first.
+Only files/streams with audio are supported, audio is also downsampled to mono for simpler processing.
