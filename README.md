@@ -11,7 +11,7 @@ Install with
 
 then go `node_modules/memcpy`
 and build memcpy module for your Node-Webkit version with nw-gyp
-see [https://github.com/rogerwang/node-webkit/wiki/Build-native-modules-with-nw-gyp](Node Webkit WikI article)
+see [Node Webkit WiKi article](https://github.com/rogerwang/node-webkit/wiki/Build-native-modules-with-nw-gyp)
 this gives greate performance boost alowing to play 1080p@60Hz movies
 have not tried 4K
 as of time of writing this text
