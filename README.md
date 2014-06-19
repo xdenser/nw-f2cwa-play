@@ -8,6 +8,17 @@ You will need ffmpeg to run this.
 
 Install with 
  `npm install nw-f2cwa-play`
+
+then go `node_modules/memcpy`
+and build memcpy module for your Node-Webkit version with nw-gyp
+see [https://github.com/rogerwang/node-webkit/wiki/Build-native-modules-with-nw-gyp](Node Webkit WikI article)
+this gives greate performance boost alowing to play 1080p@60Hz movies
+have not tried 4K
+as of time of writing this text
+memcpy was compiling successfully only for NW version <=0.8.X
+
+nw-f2cwa-play will use pure JS less performant fallback if binary memcpy not available
+
  
 Under Windows place ffmpeg.exe into `vendor` directory or
 on any platform pass ffmpeg path to player as option.
