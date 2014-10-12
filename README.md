@@ -15,7 +15,7 @@ Install with
  
  nw-f2cwa-play will try to load precompiled binary for your combination of version/platform/architecture.
  following combinations are supported:
- NW 0.7.5,0.8.4,0.8.6,0.9.2,0.10.0-rc1 for Linux 32/64, Windows 32
+ NW 0.7.5,0.8.4,0.8.6,0.9.2,0.10.0-rc1,0.10.2 for Linux 32/64, Windows 32
  
  I have no OSX machine to prebuild OSX versions and include them in npm module.
  Contributors are welcome. Here is  [simple instructions to build for OSX](https://gist.github.com/xdenser/817dc03dd5d36a9004fe).
